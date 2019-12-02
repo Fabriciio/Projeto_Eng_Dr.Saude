@@ -1,3 +1,34 @@
+<?php 
+	if(isset($_GET['msg'])){
+		$msg = $_GET['msg'];
+
+		switch($msg){
+			case 1:
+			?>
+				<div class="message">
+					<div class="alert alert-success">
+						<a href="I_CadastrarFuncionarios.php" class="close" data-dismiss="alert">&times</a>
+						Funcionário cadastrado com sucesso.
+					</div>
+				</div>
+			<?php
+			break;
+			case 2:
+			?>
+				<div class="message">
+					<div class="alert alert-danger">
+						<a href="index.php" class="close" data-dismiss="alert">&times</a>
+						Erro ao cadastrar funcionário.
+					</div>
+				</div>
+			<?php
+			break;
+		}
+	}
+ ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +93,7 @@
 	
     <div class="box content">
 	
-	<form action="../Controller/CadastrarFuncionarios.php" method="POST">
+	<form action="../Controller/CadastrarFuncionario.php" method="POST">
 						<div class="form-group row">
 							<label for="cpf_f" class="col-sm-2 col-form-label">CPF:</label>
 								<div class="col-sm-10">
@@ -90,13 +121,13 @@
 						<div class="form-group row">
 							<label for="email_f" class="col-sm-2 col-form-label">E-mail:</label>
 								<div class="col-sm-10">
-							<input type="email" class="form-control" name="email_f" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
+							<input type="email" class="form-control" name="email_f">
 								</div>
 						</div>
 						<div class="form-group row">
 							<label for="telefone_f" class="col-sm-2 col-form-label">Telefone:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="telefone_f" pattern="[0-9][0-9] [0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]" placeholder="00 12345-6789">
+							<input type="text" class="form-control" name="telefone_f" placeholder="00 12345-6789">
 								</div>
 						</div>
 						<div class="form-group row">
@@ -112,15 +143,15 @@
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="tipo_funcionario" class="col-sm-2 col-form-label">Tipo de Funcionário:</label>
+							<label for="tipo_f" class="col-sm-2 col-form-label">Tipo de Funcionário:</label>
 								<div class="col-sm-10">
-							<select class="form-control" name="tipo_funcionario">
-								<option value="null">Selecione</option>
-								<option value="administrativo">Administrativo</option>
-								<option value="medico">Médico</option>
-								<option value="direcao">Direção</option>
-								<option value="sisadmin">SisAdmin</option>
-							</select>
+									<input list="tipo_f" name="tipo_f">
+										<datalist id="tipo_f">
+											<option value="Administrativo">
+											<option value="Medico">
+											<option value="Diretoria">
+											<option value="SisAdmin">
+										</datalist>
 								</div>
 						</div>
 						<div class="form-group row">
