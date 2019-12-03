@@ -150,40 +150,39 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $cpf_f != "") {
 </div>
   
   <div class="main">
-  
-    <div class="box sidebar">
+	<div class="box sidebar">
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Funcionários</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarFuncionarios.php">Cadastrar</a></div>
       <div class="fakeimg"><a href="..\View\I_ConsultarFuncionarios.php">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarFuncionarios.php">Alterar</a></div>
+	  <div class="fakeimg"><a href="..\View\I_AlterarFuncionarios.php">Alterar/Excluir</a></div>
     </div>
 	
 	
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Pacientes</h3></div>
-      <div class="fakeimg"><a href="..\View\I_CadastrarFuncionarios.html">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarFuncionarios.html">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarFuncionarios.php">Alterar</a></div>
+      <div class="fakeimg"><a href="..\View\I_CadastrarPacientes.php">Cadastrar</a></div>
+      <div class="fakeimg"><a href="..\View\I_ConsultarPacientes.php">Consultar</a></div>
+	  <div class="fakeimg"><a href="..\View\I_AlterarPacientes.php">Alterar/Excluir</a></div>
     </div>
 	
 	
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Clinicas</h3></div>
-      <div class="fakeimg"><a href="..\View\I_CadastrarFuncionarios.html">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarFuncionarios.html">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarFuncionarios.php">Alterar</a></div>
+      <div class="fakeimg"><a href="..\View\I_CadastrarClinicas.php">Cadastrar</a></div>
+      <div class="fakeimg"><a href="..\View\I_ConsultarClinicas.php">Consultar</a></div>
+	  <div class="fakeimg"><a href="..\View\I_AlterarClinicas.php">Alterar/Excluir</a></div>
     </div>
 	
 	
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Consultas</h3></div>
-      <div class="fakeimg"><a href="..\View\I_CadastrarFuncionarios.html">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarFuncionarios.html">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarFuncionarios.php">Alterar</a></div>	  
+      <div class="fakeimg"><a href="..\View\I_CadastrarConsultas.php">Cadastrar</a></div>
+      <div class="fakeimg"><a href="..\View\I_ConsultarConsultas.php">Consultar</a></div>
+	  <div class="fakeimg"><a href="..\View\I_AlterarConsultas.php">Alterar/Excluir</a></div>	  
 	</div>
    </div>
-	
+
     <div class="box content">
 	
 	<form action="../Controller/AlterarFuncionario.php" method="POST">
@@ -277,7 +276,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $cpf_f != "") {
 						<div class="form-group row">
 							<label for="tipo_f" class="col-sm-2 col-form-label">Tipo de Funcionário:</label>
 								<div class="col-sm-10">
-									<input list="tipos" name="tipo_f" 
+									<input list="tipos" class="form-control" name="tipo_f" 
 							<?php
 								if (isset($tipo_f) && $tipo_f != null || $tipo_f != "") {
 								echo "value=\"{$tipo_f}\"";
@@ -332,7 +331,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $cpf_f != "") {
 		<th>E-mail</th>
 		<th>Telefone</th>
 		<th>Login</th>
-		<th>Senha</th>
+
 		<th>Tipo de Funcionário</th>
 		<th>CRM</th>
 		<th>Especialidade</th>
@@ -354,7 +353,7 @@ try {
 					<td>".$rs->email_f. "</td>
 					<td>".$rs->telefone_f. "</td>
 					<td>".$rs->login_f. "</td>
-					<td>".$rs->senha_f. "</td>
+
 					<td>".$rs->tipo_f. "</td>
 					<td>".$rs->crm_f. "</td>
 					<td>".$rs->especialidade_f. "</td>"

@@ -8,7 +8,7 @@
 				<div class="message">
 					<div class="alert alert-success">
 						<a href="I_CadastrarFuncionarios.php" class="close" data-dismiss="alert">&times</a>
-						Funcionário cadastrado com sucesso.
+						Clínica cadastrada com sucesso.
 					</div>
 				</div>
 			<?php
@@ -18,7 +18,7 @@
 				<div class="message">
 					<div class="alert alert-danger">
 						<a href="index.php" class="close" data-dismiss="alert">&times</a>
-						Erro ao cadastrar funcionário.
+						Erro ao cadastrar clínica.
 					</div>
 				</div>
 			<?php
@@ -92,81 +92,38 @@
 
     <div class="box content">
 	
-	<form action="../Controller/CadastrarFuncionario.php" method="POST">
+	<form action="../Controller/CadastrarClinica.php" method="POST">
 						<div class="form-group row">
-							<label for="cpf_f" class="col-sm-2 col-form-label">CPF:</label>
+							<label for="cpf_f" class="col-sm-2 col-form-label">CNPJ:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="cpf_f">
+							<input type="text" class="form-control" name="cnpj"></div>
+						</div>
+						<div class="form-group row">
+							<label for="nome_f" class="col-sm-2 col-form-label">Nome Fantasia:</label>
+								<div class="col-sm-10">
+							<input type="text" class="form-control" name="nome_c">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="nome_f" class="col-sm-2 col-form-label">Nome Completo:</label>
+							<label for="nome_f" class="col-sm-2 col-form-label">Razão Social:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="nome_f">
+							<input type="text" class="form-control" name="razao_social">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="nasc_f" class="col-sm-2 col-form-label">Data de Nascimento:</label>
+							<label for="end_p" class="col-sm-2 col-form-label">Endereço:</label>
 								<div class="col-sm-10">
-							<input type="date" class="form-control" name="nasc_f">
+							<input type="text" class="form-control" name="end_c" placeholder="Logradouro, Nº, Bairro, Cidade">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="naturalidade_f" class="col-sm-2 col-form-label">Naturalidade:</label>
+							<label for="telefone_p" class="col-sm-2 col-form-label">Telefone:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="naturalidade_f">
+							<input type="text" class="form-control" name="telefone_c" placeholder="00 12345-6789">
 								</div>
 						</div>
-						<div class="form-group row">
-							<label for="email_f" class="col-sm-2 col-form-label">E-mail:</label>
-								<div class="col-sm-10">
-							<input type="email" class="form-control" name="email_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="telefone_f" class="col-sm-2 col-form-label">Telefone:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="telefone_f" placeholder="00 12345-6789">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="login_f" class="col-sm-2 col-form-label">Login:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="login_f" maxlength="50">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="senha_f" class="col-sm-2 col-form-label">Senha:</label>
-								<div class="col-sm-10">
-							<input type="password" class="form-control" name="senha_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="tipo_f" class="col-sm-2 col-form-label">Tipo de Funcionário:</label>
-								<div class="col-sm-10">
-									<input list="tipo_f" class="form-control" name="tipo_f">
-										<datalist id="tipo_f">
-											<option value="Administrativo">
-											<option value="Medico">
-											<option value="Diretoria">
-											<option value="SisAdmin">
-										</datalist>
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="crm_f" class="col-sm-2 col-form-label">CRM:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="crm_f" placeholder="Se Médico digite o CRM">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="especialidade_f" class="col-sm-2 col-form-label">Especialidade médica:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="especialidade_f" placeholder="Se Médico digite a Especialidade">
-								</div>
-						</div>
-						
-							<input type="submit" value="Cadastrar">
+												
+							<input type="submit" value="Cadastrar_C">
 						
 					</form>
 	

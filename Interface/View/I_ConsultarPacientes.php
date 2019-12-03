@@ -1,30 +1,4 @@
 <?php 
-	if(isset($_GET['msg'])){
-		$msg = $_GET['msg'];
-
-		switch($msg){
-			case 1:
-			?>
-				<div class="message">
-					<div class="alert alert-success">
-						<a href="I_CadastrarFuncionarios.php" class="close" data-dismiss="alert">&times</a>
-						Funcionário cadastrado com sucesso.
-					</div>
-				</div>
-			<?php
-			break;
-			case 2:
-			?>
-				<div class="message">
-					<div class="alert alert-danger">
-						<a href="index.php" class="close" data-dismiss="alert">&times</a>
-						Erro ao cadastrar funcionário.
-					</div>
-				</div>
-			<?php
-			break;
-		}
-	}
 	
 try {
     $conexao = new PDO("mysql:host=localhost; dbname=bd_drsaude", "root", "");
@@ -106,35 +80,32 @@ try {
         <th>CPF</th>
 		<th>Nome</th>
 		<th>Nascimento</th>
+		<th>Endereço</th>
 		<th>Naturalidade</th>
-		<th>E-mail</th>
 		<th>Telefone</th>
+		<th>Plano de Saúde</th>
+		<th>E-mail</th>
 		<th>Login</th>
 
-		<th>Tipo de Funcionário</th>
-		<th>CRM</th>
-		<th>Especialidade</th>
     </tr>
 	
 <?php
 try {
  
-    $stmt = $conexao->prepare("SELECT * FROM funcionarios");
+    $stmt = $conexao->prepare("SELECT * FROM pacientes");
  
         if ($stmt->execute()) {
             while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
                 echo "<tr>";
-                echo "<td>".$rs->cpf_f."</td>
-					<td>".$rs->nome_f."</td>
-					<td>".$rs->nasc_f. "</td>
-					<td>".$rs->naturalidade_f. "</td>
-					<td>".$rs->email_f. "</td>
-					<td>".$rs->telefone_f. "</td>
-					<td>".$rs->login_f. "</td>
-
-					<td>".$rs->tipo_f. "</td>
-					<td>".$rs->crm_f. "</td>
-					<td>".$rs->especialidade_f. "</td>";
+                echo "<td>".$rs->cpf_p."</td>
+					<td>".$rs->nome_p."</td>
+					<td>".$rs->nasc_p. "</td>
+					<td>".$rs->end_p. "</td>
+					<td>".$rs->naturalidade_p. "</td>
+					<td>".$rs->telefone_p. "</td>
+					<td>".$rs->plano_p. "</td>
+					<td>".$rs->email_p. "</td>
+					<td>".$rs->login_p. "</td>";
                 echo "</tr>";
             }
         } else {
