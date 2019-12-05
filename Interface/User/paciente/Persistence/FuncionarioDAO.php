@@ -22,7 +22,6 @@ class FuncionarioDAO{
 		echo "<br>" . $sql;
 		
 		if ($conn->query($sql)==TRUE){
-			
 			header("location: ..\View\I_CadastrarFuncionarios.php?msg=1");
 		}
 		else {
@@ -40,7 +39,7 @@ class FuncionarioDAO{
 			$telefone_f= $_POST['telefone_f'];
 			$login_f= $_POST['login_f'];
 			$senha_f= $_POST['senha_f'];
-				$senha_f = md5($senha_f);
+				$criptografada = md5($senha_f);
 			$tipo_f= $_POST['tipo_f'];
 			$crm_f= $_POST['crm_f'];
 			$especialidade_f= $_POST['especialidade_f'];

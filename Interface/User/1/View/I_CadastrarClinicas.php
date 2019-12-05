@@ -1,30 +1,43 @@
-<?php
-	//starta a sessão
-    session_start();
-	ob_start();
-	//resgata os valores das session em variaveis
-	$id_users = isset($_SESSION['id_users']) ? $_SESSION['id_users']: "";	
-	$nome_user = isset($_SESSION['nome']) ? $_SESSION['nome']: "";	
-	$email_users = isset($_SESSION['email']) ? $_SESSION['email']: "";	
-	$pass_users = isset($_SESSION['pass']) ? $_SESSION['pass']: "";	
-	$logado = isset($_SESSION['logado']) ? $_SESSION['logado']: "N";	
-	//varificamos e a var logado contém o valos (S) OU (N), se conter N quer dizer que a pessoa não fez o login corretamente
-	//que no caso satisfará nossa condição no if e a pessoa sera redirecionada para a tela de login novamente
-	if ($logado == "N" && $id_users == ""){	    
-		echo  "<script type='text/javascript'>
-					location.href='index.php'
-				</script>";	
-		exit();
+<?php 
+	if(isset($_GET['msg'])){
+		$msg = $_GET['msg'];
+
+		switch($msg){
+			case 1:
+			?>
+				<div class="message">
+					<div class="alert alert-success">
+						<a href="I_CadastrarFuncionarios.php" class="close" data-dismiss="alert">&times</a>
+						Clínica cadastrada com sucesso.
+					</div>
+				</div>
+			<?php
+			break;
+			case 2:
+			?>
+				<div class="message">
+					<div class="alert alert-danger">
+						<a href="index.php" class="close" data-dismiss="alert">&times</a>
+						Erro ao cadastrar clínica.
+					</div>
+				</div>
+			<?php
+			break;
+		}
 	}
-?>
+ ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>Home - Dr. Saúde</title>
 <meta charset="UTF-8">
 <link rel="stylesheet"  type="text/css" href="../css/home.css" />
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
 <script type="text/java" href="../js/button.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+
 </head>
 
 <body>
@@ -32,14 +45,9 @@
 <button class="button1">Criar Nova Consulta</button>
 
 <div class="wrapper">
+
   <div class="header">
-	<div>
 	<img align="left" vspace="35px" hspace="15px" src="..\images\drSaudeLogo.png"/>
-	</div>
-	<div>
-	<h1><?php echo $nome_user;?> voc&ecirc; est&aacute; logado...</h1>
-	<a href="../Controller/logout.php"><input type="button" value="Sair"/></a>
-	</div>
   </div>
   
   <div class="topnav">
@@ -83,15 +91,51 @@
    </div>
 
     <div class="box content">
-
-
-	</div>  	
-
+	
+	<form action="../Controller/CadastrarClinica.php" method="POST">
+						<div class="form-group row">
+							<label for="cpf_f" class="col-sm-2 col-form-label">CNPJ:</label>
+								<div class="col-sm-10">
+							<input type="text" class="form-control" name="cnpj"></div>
+						</div>
+						<div class="form-group row">
+							<label for="nome_f" class="col-sm-2 col-form-label">Nome Fantasia:</label>
+								<div class="col-sm-10">
+							<input type="text" class="form-control" name="nome_c">
+								</div>
+						</div>
+						<div class="form-group row">
+							<label for="nome_f" class="col-sm-2 col-form-label">Razão Social:</label>
+								<div class="col-sm-10">
+							<input type="text" class="form-control" name="razao_social">
+								</div>
+						</div>
+						<div class="form-group row">
+							<label for="end_p" class="col-sm-2 col-form-label">Endereço:</label>
+								<div class="col-sm-10">
+							<input type="text" class="form-control" name="end_c" placeholder="Logradouro, Nº, Bairro, Cidade">
+								</div>
+						</div>
+						<div class="form-group row">
+							<label for="telefone_p" class="col-sm-2 col-form-label">Telefone:</label>
+								<div class="col-sm-10">
+							<input type="text" class="form-control" name="telefone_c" placeholder="00 12345-6789">
+								</div>
+						</div>
+												
+							<input type="submit" value="Cadastrar_C">
+						
+					</form>
+	
+	</div>
+	
+	
   </div>
   
+  <div class="footer">
   
-
-  <div class="footer"></div>
+  
+  </div>
 	</div>
 
 

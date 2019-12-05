@@ -8,7 +8,7 @@
 				<div class="message">
 					<div class="alert alert-success">
 						<a href="I_CadastrarFuncionarios.php" class="close" data-dismiss="alert">&times</a>
-						Funcionário cadastrado com sucesso.
+						Paciente cadastrado com sucesso.
 					</div>
 				</div>
 			<?php
@@ -18,7 +18,7 @@
 				<div class="message">
 					<div class="alert alert-danger">
 						<a href="index.php" class="close" data-dismiss="alert">&times</a>
-						Erro ao cadastrar funcionário.
+						Erro ao cadastrar paciente.
 					</div>
 				</div>
 			<?php
@@ -61,112 +61,94 @@
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Funcionários</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarFuncionarios.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarFuncionarios.php">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarFuncionarios.php">Alterar/Excluir</a></div>
     </div>
 	
 	
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Pacientes</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarPacientes.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarPacientes.php">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarPacientes.php">Alterar/Excluir</a></div>
     </div>
 	
 	
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Clinicas</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarClinicas.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarClinicas.php">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarClinicas.php">Alterar/Excluir</a></div>
     </div>
 	
 	
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Consultas</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarConsultas.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarConsultas.php">Consultar</a></div>
-	  <div class="fakeimg"><a href="..\View\I_AlterarConsultas.php">Alterar/Excluir</a></div>	  
+      <div class="fakeimg"><a href="..\View\I_ConsultarConsultas.php">Consultar</a></div>	  
 	</div>
    </div>
 
     <div class="box content">
 	
-	<form action="../Controller/CadastrarFuncionario.php" method="POST">
+	<form action="../Controller/CadastrarPaciente.php" method="POST">
 						<div class="form-group row">
-							<label for="cpf_f" class="col-sm-2 col-form-label">CPF:</label>
+							<label for="cpf_p" class="col-sm-2 col-form-label">CPF:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="cpf_f">
+							<input type="text" class="form-control" name="cpf_p">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="nome_f" class="col-sm-2 col-form-label">Nome Completo:</label>
+							<label for="nome_p" class="col-sm-2 col-form-label">Nome Completo:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="nome_f">
+							<input type="text" class="form-control" name="nome_p">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="nasc_f" class="col-sm-2 col-form-label">Data de Nascimento:</label>
+							<label for="nasc_p" class="col-sm-2 col-form-label">Data de Nascimento:</label>
 								<div class="col-sm-10">
-							<input type="date" class="form-control" name="nasc_f">
+							<input type="date" class="form-control" name="nasc_p">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="naturalidade_f" class="col-sm-2 col-form-label">Naturalidade:</label>
+							<label for="end_p" class="col-sm-2 col-form-label">Endereço:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="naturalidade_f">
+							<input type="text" class="form-control" name="end_p" placeholder="Logradouro, Nº, Bairro, Cidade">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="email_f" class="col-sm-2 col-form-label">E-mail:</label>
+							<label for="naturalidade_p" class="col-sm-2 col-form-label">Naturalidade:</label>
 								<div class="col-sm-10">
-							<input type="email" class="form-control" name="email_f">
+							<input type="text" class="form-control" name="naturalidade_p">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="telefone_f" class="col-sm-2 col-form-label">Telefone:</label>
+							<label for="telefone_p" class="col-sm-2 col-form-label">Telefone:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="telefone_f" placeholder="00 12345-6789">
+							<input type="text" class="form-control" name="telefone_p" placeholder="00 12345-6789">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="login_f" class="col-sm-2 col-form-label">Login:</label>
+							<label for="plano_p" class="col-sm-2 col-form-label">Plano de Saúde:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="login_f" maxlength="50">
+							<input type="text" class="form-control" name="plano_p" placeholder="Nome do Plano caso possua">
 								</div>
 						</div>
 						<div class="form-group row">
-							<label for="senha_f" class="col-sm-2 col-form-label">Senha:</label>
+							<label for="email_p" class="col-sm-2 col-form-label">E-mail:</label>
 								<div class="col-sm-10">
-							<input type="password" class="form-control" name="senha_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="tipo_f" class="col-sm-2 col-form-label">Tipo de Funcionário:</label>
-								<div class="col-sm-10">
-									<input list="tipo_f" class="form-control" name="tipo_f">
-										<datalist id="tipo_f">
-											<option value="3">Administrativo</option>
-											<option value="2">Medico</option>
-											<option value="1">Diretoria</option>
-											<option value="0">SisAdmin</option>
-										</datalist>
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="crm_f" class="col-sm-2 col-form-label">CRM:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="crm_f" placeholder="Se Médico digite o CRM">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="especialidade_f" class="col-sm-2 col-form-label">Especialidade médica:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="especialidade_f" placeholder="Se Médico digite a Especialidade">
+							<input type="email" class="form-control" name="email_p">
 								</div>
 						</div>
 						
-							<input type="submit" value="Cadastrar">
+						<div class="form-group row">
+							<label for="login_p" class="col-sm-2 col-form-label">Login:</label>
+								<div class="col-sm-10">
+							<input type="text" class="form-control" name="login_p" maxlength="50">
+								</div>
+						</div>
+						<div class="form-group row">
+							<label for="senha_p" class="col-sm-2 col-form-label">Senha:</label>
+								<div class="col-sm-10">
+							<input type="password" class="form-control" name="senha_p">
+								</div>
+						</div>
+												
+							<input type="submit" value="Cadastrar_P">
 						
 					</form>
 	
