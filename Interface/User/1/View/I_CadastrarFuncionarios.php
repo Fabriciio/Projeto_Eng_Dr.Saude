@@ -146,10 +146,10 @@
 								<div class="col-sm-10">
 									<input list="tipo_f" class="form-control" name="tipo_f">
 										<datalist id="tipo_f">
-											<option value="3">Administrativo</option>
-											<option value="2">Medico</option>
-											<option value="1">Diretoria</option>
-											<option value="0">SisAdmin</option>
+											<option value="Administrativo">
+											<option value="Medico">
+											<option value="Diretoria">
+											<option value="SisAdmin">
 										</datalist>
 								</div>
 						</div>

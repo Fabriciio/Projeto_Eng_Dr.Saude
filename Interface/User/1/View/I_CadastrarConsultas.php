@@ -8,7 +8,7 @@
 				<div class="message">
 					<div class="alert alert-success">
 						<a href="I_CadastrarFuncionarios.php" class="close" data-dismiss="alert">&times</a>
-						Funcionário cadastrado com sucesso.
+						Consulta cadastrada com sucesso.
 					</div>
 				</div>
 			<?php
@@ -18,13 +18,21 @@
 				<div class="message">
 					<div class="alert alert-danger">
 						<a href="index.php" class="close" data-dismiss="alert">&times</a>
-						Erro ao cadastrar funcionário.
+						Erro ao cadastrar consulta.
 					</div>
 				</div>
 			<?php
 			break;
 		}
 	}
+	
+try {
+    $conexao = new PDO("mysql:host=localhost; dbname=bd_drsaude", "root", "");
+	$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$conexao->exec("set names utf8");
+} catch (PDOException $erro) {
+    echo "Erro na conexão:" . $erro->getMessage();
+}
  ?>
 
 
@@ -92,81 +100,86 @@
 
     <div class="box content">
 	
-	<form action="../Controller/CadastrarFuncionario.php" method="POST">
+	
+	<form action="../Controller/CadastrarConsulta.php" method="POST">
 						<div class="form-group row">
-							<label for="cpf_f" class="col-sm-2 col-form-label">CPF:</label>
+							<label for="cpf_f" class="col-sm-2 col-form-label">Data e Hora da Consulta:</label>
 								<div class="col-sm-10">
-							<input type="text" class="form-control" name="cpf_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="nome_f" class="col-sm-2 col-form-label">Nome Completo:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="nome_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="nasc_f" class="col-sm-2 col-form-label">Data de Nascimento:</label>
-								<div class="col-sm-10">
-							<input type="date" class="form-control" name="nasc_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="naturalidade_f" class="col-sm-2 col-form-label">Naturalidade:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="naturalidade_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="email_f" class="col-sm-2 col-form-label">E-mail:</label>
-								<div class="col-sm-10">
-							<input type="email" class="form-control" name="email_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="telefone_f" class="col-sm-2 col-form-label">Telefone:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="telefone_f" placeholder="00 12345-6789">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="login_f" class="col-sm-2 col-form-label">Login:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="login_f" maxlength="50">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="senha_f" class="col-sm-2 col-form-label">Senha:</label>
-								<div class="col-sm-10">
-							<input type="password" class="form-control" name="senha_f">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="tipo_f" class="col-sm-2 col-form-label">Tipo de Funcionário:</label>
-								<div class="col-sm-10">
-									<input list="tipo_f" class="form-control" name="tipo_f">
-										<datalist id="tipo_f">
-											<option value="3">Administrativo</option>
-											<option value="2">Medico</option>
-											<option value="1">Diretoria</option>
-											<option value="0">SisAdmin</option>
-										</datalist>
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="crm_f" class="col-sm-2 col-form-label">CRM:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="crm_f" placeholder="Se Médico digite o CRM">
-								</div>
-						</div>
-						<div class="form-group row">
-							<label for="especialidade_f" class="col-sm-2 col-form-label">Especialidade médica:</label>
-								<div class="col-sm-10">
-							<input type="text" class="form-control" name="especialidade_f" placeholder="Se Médico digite a Especialidade">
-								</div>
+							<input id="dt_consulta" type="datetime-local" class="form-control" name="dt_consulta"></div>
 						</div>
 						
-							<input type="submit" value="Cadastrar">
+						<div class="form-group row">
+							<label for="nome_f" class="col-sm-2 col-form-label">Paciente:</label>
+							<div class="col-sm-10">
+								<select name="paciente_a" class="form-control">
+								<option>Selecione Paciente</option>
+								  <?php
+									$stmt = $conexao->prepare("SELECT * FROM pacientes");
+ 
+										if ($stmt->execute()) {
+											while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
+										$vcpf_p=$rs->cpf_p;
+										$vnome_p=$rs->nome_p;
+										echo "<option value=$nome_p>$vnome_p</option>";
+											}
+										}
+								  
+								  ?>
+								</select>
+								</div>
+								
+						</div>
+						<div class="form-group row">
+							<label for="nome_f" class="col-sm-2 col-form-label">Médico:</label>
+								<div class="col-sm-10">
+							<select name="medico_a" class="form-control">
+								<option>Selecione Médico</option>
+								<?php
+									$stmt = $conexao->prepare("SELECT * FROM funcionarios");
+ 
+										if ($stmt->execute()) {
+											while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
+												if($rs->crm_f != NULL or $rs->crm_f != ""){
+											$vcrm_f=$rs->crm_f;
+											$vnome_f=$rs->nome_f;
+											echo "<option value=$vnome_f>$vnome_f</option>";
+											
+												}
+											}
+										}
+								  
+								  ?>						
+								</select>
+								</div>
+						</div>
+						<div class="form-group row">
+							<label for="end_p" class="col-sm-2 col-form-label">Clínica:</label>
+								<div class="col-sm-10">
+							<select name="clinica_a" class="form-control">
+								<option>Selecione Clínica</option>
+								<?php
+									$stmt = $conexao->prepare("SELECT * FROM clinicas");
+ 
+										if ($stmt->execute()) {
+											while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
+											$vcnpj=$rs->cnpj;
+											$vnome_c=$rs->nome_c;
+											echo "<option value=$vnome_c>$vnome_c</option>";
+											
+											}
+										}
+								  
+								  ?>						
+								</select>
+								</div>
+						</div>
+						<div class="form-group row">
+							<label for="cpf_f" class="col-sm-2 col-form-label">Data e Hora do agendamento:</label>
+								<div class="col-sm-10">
+							<input id="agendamento" type="datetime-local" class="form-control" name="agendamento"></div>
+						</div>
+						
+							<input type="submit" value="Adicionar Consulta">
 						
 					</form>
 	
