@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
+
 		<article>
 			<form name="form_pesquisa" id="form_pesquisa" method="post" action="">
 				<div id="login-box">
