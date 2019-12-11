@@ -21,9 +21,9 @@ include_once '..\Persistence\PacienteDAO.php';
 $conexao = new Connection();
 $conexao = $conexao->getConnection();
 
-$c = new Usuario($cpf_p,$nome_p,$nasc_p,$end_p,$naturalidade_p,$telefone_p,$plano_p,$email_p,$login_p,$criptografada_p);
+$p = new Paciente($cpf_p,$nome_p,$nasc_p,$end_p,$naturalidade_p,$telefone_p,$plano_p,$email_p,$login_p,$criptografada_p);
 
-$usuariodao = new PacienteDAO();
-$usuariodao->salvar($c, $conexao);
+$pacientedao = new PacienteDAO();
+$pacientedao->salvar($p, $conexao);
 
 ?>

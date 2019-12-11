@@ -20,9 +20,9 @@ $especialidade_f= $_POST['especialidade_f'];
 $conexao = new Connection();
 $conexao = $conexao->getConnection();
 
-$c = new Usuario($cpf_f,$nome_f,$nasc_f,$naturalidade_f,$email_f,$telefone_f,$login_f,$criptografada,$tipo_f,$crm_f,$especialidade_f);
+$f = new Funcionario($cpf_f,$nome_f,$nasc_f,$naturalidade_f,$email_f,$telefone_f,$login_f,$criptografada,$tipo_f,$crm_f,$especialidade_f);
 
-$usuariodao = new FuncionarioDAO();
-$usuariodao->salvar($c, $conexao);
+$funcionariodao = new FuncionarioDAO();
+$funcionariodao->salvar($f, $conexao);
 
 ?>
