@@ -36,7 +36,7 @@
 			case 4:
 			?>
 				<div class="message">
-					<div class="alert alert-success">
+					<div class="alert alert-danger">
 						<a href="I_CadastrarFuncionarios.php" class="close" data-dismiss="alert">&times</a>
 						Erro ao excluir funcionário.
 					</div>
@@ -154,7 +154,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $cpf_f != "") {
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Funcionários</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarFuncionarios.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarFuncionarios.php">Consultar</a></div>
+      <div class="fakeimg"><a href="..\View\I_ConsultarFuncionarios.php">Relatório</a></div>
 	  <div class="fakeimg"><a href="..\View\I_AlterarFuncionarios.php">Alterar/Excluir</a></div>
     </div>
 	
@@ -162,7 +162,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $cpf_f != "") {
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Pacientes</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarPacientes.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarPacientes.php">Consultar</a></div>
+      <div class="fakeimg"><a href="..\View\I_ConsultarPacientes.php">Relatório</a></div>
 	  <div class="fakeimg"><a href="..\View\I_AlterarPacientes.php">Alterar/Excluir</a></div>
     </div>
 	
@@ -170,7 +170,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $cpf_f != "") {
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Clinicas</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarClinicas.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarClinicas.php">Consultar</a></div>
+      <div class="fakeimg"><a href="..\View\I_ConsultarClinicas.php">Relatório</a></div>
 	  <div class="fakeimg"><a href="..\View\I_AlterarClinicas.php">Alterar/Excluir</a></div>
     </div>
 	
@@ -178,7 +178,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $cpf_f != "") {
 	<div class="card1" >
       <div class="fakeimgtitle"><h3>Consultas</h3></div>
       <div class="fakeimg"><a href="..\View\I_CadastrarConsultas.php">Cadastrar</a></div>
-      <div class="fakeimg"><a href="..\View\I_ConsultarConsultas.php">Consultar</a></div>
+      <div class="fakeimg"><a href="..\View\I_ConsultarConsultas.php">Relatório</a></div>
 	  <div class="fakeimg"><a href="..\View\I_AlterarConsultas.php">Alterar/Excluir</a></div>	  
 	</div>
    </div>

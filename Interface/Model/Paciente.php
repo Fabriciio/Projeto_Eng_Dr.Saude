@@ -1,6 +1,6 @@
 <?php
 
-class Usuario{
+class Paciente{
 	
 	private	$cpf_p;
 	private	$nome_p;

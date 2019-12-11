@@ -17,7 +17,7 @@ $conexao = $conexao->getConnection();
 
 $c = new Clinica($cnpj,$nome_c,$razao_social,$end_c,$telefone_c);
 
-$usuariodao = new ClinicaDAO();
-$usuariodao->salvar($c, $conexao);
+$clinicadao = new ClinicaDAO();
+$clinicadao->salvar($c, $conexao);
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-class Usuario{
+class Funcionario{
 	
 	private	$cpf_f;
 	private	$nome_f;
