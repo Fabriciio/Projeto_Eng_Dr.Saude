@@ -12,15 +12,12 @@ Projetar um sistema integrado que possibilitará a empresa um aumento na produti
 > Os desenvolvedores têm acesso máximo ao sistema, podendo acessar e modificar os seguintes dados:
 - Dados cadastrais de todos os usuarios e unidades
 - Dados das ações de todos os usuarios, como consultas (no caso de médicos)
-- Dados de diagnósticos de todos os pacientes
 
 > Os técnicos administrativos têm acesso a tudo que diz respeito aos pacientes, porém com restrições nos dados quando comparado aos desenvolvedores, seguem abaixo mais detalhes:
 - Dados cadastrais de todos os pacientes
-- Dados de diagnósticos de todos os pacientes
 
-> Um médico pode acessar apenas os dados referente às suas próprias consultas e diagnósticos, além dos dados de diagnóstico de pacientes:
-- Dados das próprias consultas, diagnósticos e exames
-- Dados de diagnósticos de todos os pacientes
+> Um médico pode acessar apenas os dados referente às suas próprias consultas.
+- Dados das próprias consultas.
 
 ### Regras de uso do git
 - Ao dar commit o membro da equipe deverá selecionar apenas os arquivos que realmente foram editados, é obrigatório que o membro da equipe insira uma mensagem que descreva as alterações no arquivo, visando posteriormente a possibilidade de rastrear as alterações realizadas no mesmo, é opcional a inserção de um comando para fechar a tarefa relacionada (ex: closes #999), já que para realizar um commit não necessáriamente o desenvolvedor deve ter solucionado o problema.
